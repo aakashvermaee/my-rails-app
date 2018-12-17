@@ -1,0 +1,37 @@
+<h1>Home#Create</h1>
+<hr/>
+
+<div>
+    <form method="post">
+        <table>
+            <tr>
+                <td><label><span>Name</span></label></td>
+                <td><input name="name" placeholder="John Smith"/></td>
+            </tr>
+            <tr>
+                <td><label><span>Age</span></label></td>
+                <td><input type="number" name="age" min="18" max="200" placeholder="18"/></td>
+            </tr>
+            <tr>
+                <td>
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Create" name="Create" id="Create">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script async="true">
+    document.querySelector('#Create').addEventListener('click', async (e) => {
+        e.preventDefault();
+        console.clear();
+        const form = document.querySelector('form');
+        let name = form[0].value, age = form[1].value;
+        console.log(`name: ${name}, age: ${age}`);
+    });
+</script>
